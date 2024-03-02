@@ -27,13 +27,16 @@ lazy val root = (project in file("."))
           ModuleSplitStyle.SmallModulesFor(List("io.github.kory33"))
         )
     },
+    Compile / mainClass := Some("io.github.kory33.wellfoundedcrafting.Main"),
     scalaJSUseMainModuleInitializer := true,
     resolvers ++= Resolver.sonatypeOssRepos("snapshots"),
     libraryDependencies ++= Seq(
+      "org.typelevel" %%% "cats-effect" % "3.4.8",
       "org.http4s" %%% "http4s-core" % http4sVersion,
       "org.http4s" %%% "http4s-dsl" % http4sVersion,
       "org.http4s" %%% "http4s-client" % http4sVersion,
       "org.http4s" %%% "http4s-circe" % http4sVersion,
-      "org.http4s" %%% "http4s-dom" % "0.2.11"
+      "org.http4s" %%% "http4s-dom" % "0.2.11",
+      "io.circe" %%% "circe-generic" % "0.14.6"
     )
   )
